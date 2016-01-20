@@ -3,6 +3,9 @@ chromePath="/Applications/Google\ Chrome.app/Contents/MacOS"
 
 export PATH=$firefoxPath:$chromePath:$PATH
 
-curl http://localhost:4444/selenium-server/driver/?cmd=shutDownSeleniumServer
+curl -s http://localhost:4444/selenium-server/driver/?cmd=shutDownSeleniumServer > /dev/null
 sleep 1
-selenium-server
+screen -d -S selenium -m selenium-server
+
+echo "Selenium started in Screen"
+echo "To attach run: screen -r selenium"
